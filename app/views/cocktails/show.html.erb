@@ -1,0 +1,10 @@
+<h1><%= @cocktail.name %></h1>
+
+<h3>Recipe:</h3>
+<ul>
+  <% @cocktail.doses.each do |dos| %>
+  <li><%= "#{dos.description}: #{dos.ingredient.name}" %> <%= link_to "delete", dose_path(dos), method: :delete %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail) %>
